@@ -57,6 +57,7 @@ model = keras.Sequential([
 
 model.compile(optimizer='adam', loss='mean_squared_error')
 model.summary()
+
 # Train the model
 epochs = 100
 batch_size = 32
@@ -66,9 +67,8 @@ model.fit(X_train, Y_train, validation_data=(X_val, Y_val), epochs=epochs, batch
 mse = model.evaluate(X_test, Y_test)
 print("Test Mean Squared Error:", mse)
 
-# Make predictions (Generate Random Data to predict the equivalent displacement)
-# new_acceleration_sequence = np.random.uniform(0, 1, (gm_sequence_length+st_sequence_length, num_features))
-new_acceleration_sequence = X_test[0]
+# Make predictions (Generate Random Data to predict the equivalent displacement) # new_acceleration_sequence = X_test[0]
+new_acceleration_sequence = np.random.uniform(0, 1, (gm_sequence_length+st_sequence_length, num_features))
 
 # Predict the displacement sequence
 predicted_displacement_sequence = model.predict(np.array([new_acceleration_sequence]))
