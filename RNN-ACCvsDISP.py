@@ -13,13 +13,13 @@ gm_sequence_length = 100        # Maximum length of GM curve
 st_sequence_length = 10         # The number of structural parameters
 
 # Inputs data
-structural_data = np.random.uniform(0, 1, (num_samples, st_sequence_length, num_features))
-ground_motion_data = np.random.uniform(0, 1, (num_samples, gm_sequence_length, num_features))
+structural_data = np.random.uniform(0, 1, (num_samples, st_sequence_length, num_features))              # random number between 0 to 1 structural_data (1000, 10, 1)
+ground_motion_data = np.random.uniform(0, 1, (num_samples, gm_sequence_length, num_features))           # random number between 0 to 1 ground_motion_data (1000, 100, 1)
 # Combine structural_data and ground_motion_data (Generate an array of 110 length)
-combined_data = np.concatenate((structural_data, ground_motion_data), axis=1)
+combined_data = np.concatenate((structural_data, ground_motion_data), axis=1)                           # ground_motion_data + structural_data (1000, 110, 1)
 
 # Output data just X2 the value of input GM just for testing
-displacement_data = ground_motion_data * 2
+displacement_data = ground_motion_data * 2                                                              # data X2 ground_motion_data just for testing
 
 # Data preprocessing and sequencing
 input_sequences = []
